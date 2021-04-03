@@ -1,7 +1,7 @@
 #Src: https://colab.research.google.com/drive/16jcaJoc6bCFAQ96jDe2HwtXj7BMD_-m5#scrollTo=HUjkwRsOn1O0
 
 import os, sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..','anikautil')))
+sys.path.append('/att/gpfsfs/briskfs01/ppl/acartas/git/anikautil/')
 from anikautil import CodeTimer
 
 from detectron2.utils.logger import setup_logger
