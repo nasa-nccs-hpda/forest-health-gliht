@@ -22,12 +22,14 @@ from detectron2.data import MetadataCatalog, DatasetCatalog
 
 from detectron2.data.datasets import register_coco_instances
 
-inSmall = "/att/gpfsfs/briskfs01/ppl/acartas/git/forest.health/input/datasets/OR_20190630_Three_Creek_0p1m/test/c3r2_c16r38/images/OR_20190630_Three_Creek_c3r2_c16r38.png"
-inLrg = "/att/gpfsfs/briskfs01/ppl/acartas/git/forest.health/input/OR_20190630_Three_Creek_c3r2_ortho.tif"
-outDir = "/att/gpfsfs/briskfs01/ppl/acartas/git/forest.health/output"
 
-inDir = "/att/gpfsfs/briskfs01/ppl/acartas/git/forest.health/input/"
-tmpDir = "/att/gpfsfs/briskfs01/ppl/acartas/git/forest.health/tmp"
+baseDir = '/att/gpfsfs/briskfs01/ppl/acartas/git/forest.health.v2/'
+inSmall = baseDir+"/input/datasets/OR_20190630_Three_Creek_0p1m/test/c3r2_c16r38/images/OR_20190630_Three_Creek_c3r2_c16r38.png"
+inLrg = baseDir+"/input/OR_20190630_Three_Creek_c3r2_ortho.tif"
+outDir = baseDir+"output"
+
+inDir = baseDir+"input/"
+tmpDir = baseDir+"tmp"
 
 
 
@@ -87,7 +89,7 @@ cfg.DATASETS.TEST = () # no metrics implemented for this dataset (?is this corre
 cfg.DATALOADER.NUM_WORKERS = 2
 cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")  # Let training initialize from model zoo
 cfg.SOLVER.IMS_PER_BATCH = 2
-cfg.SOLVER.BASE_LR = 0.00025  # pick a good LR
+cfg.SOLVER.BASE_LR = 0.00125  # pick a good LR
 cfg.SOLVER.MAX_ITER = 5    # 300 iterations seems good enough for this toy dataset; you will need to train longer for a practical dataset
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster, and good enough for this toy dataset (default: 512)
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = 1  # only has one class
@@ -131,6 +133,7 @@ for d in dataset_dicts:#random.sample(dataset_dicts, 3):
       out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
       predictFileName = os.path.basename(d['file_name'][:-4]+'_predict.png')
       fileOut = os.path.join(outDir,predictFileName)
+      
       cv2.imwrite(fileOut,out.get_image()[:, :, ::-1])
     
     
