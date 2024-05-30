@@ -12,13 +12,25 @@ Anika in an old iteration of this project. The data is listed below:
 
 ## Original Modeling Methodology
 
-Explain the original model here.
+The original methodology was based on the MaskRCNN model. We used the detectron2 framework to train
+a MaskRCNN model using transfer learning. The problem would receive camera images as input, and boundary
+segmentations of dead trees. This therefore allowed us to perform instance segmentation of trees to both find
+them, and then also specify their health status (dead or not dead).
+
+We focused the training data only in dead trees, thus our outputs would only find trees that were dead. The
+training dataset was relatively small, but leveraging transfer learning allowed us to be able to find dead
+trees without significant labeling efforts.
+
+Since Anika left, the project was stopped. But this are the things I would have liked to fix/work on:
+- New/updated model (YOLO for example)
+- Labels that include all types of trees, but then are sublabeled as dead or not dead
+- Automated pipeline to process full scenes
 
 ## New Example Modeling Methodology
 
-Given the 
+Explain proposed method (just as a suggestion).
 
-## 
+## Environment Setup
 
 Installing on existing repository
 
