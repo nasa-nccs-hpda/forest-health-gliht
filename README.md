@@ -28,29 +28,22 @@ Since Anika left, the project was stopped. But this are the things I would have 
 
 ## New Example Modeling Methodology
 
-Explain proposed method (just as a suggestion).
+A possible improvement on the current setup is to use existing foundation models with
+newer architectures such as YOLO and state-of-the-art object detection. The MaskRCNN
+notebook under the `notebooks` directory has details on running the previous workflow
+using a sample dataset created by Anika.
 
 ## Environment Setup
 
-Installing on existing repository
+The dependencies are installed from the notebooks themselves.
 
-```bash
-1041  2021-04-03 08:34:13  pip install tensorboard cmake
- 1042  2021-04-03 08:34:35  pip install torch==1.8 torchvision==0.9 -f https://download.pytorch.org/whl/cu101/torch_stable.html
- 1043  2021-04-03 08:37:20  pip install 'git+https://github.com/facebookresearch/fvcore'
- 1044  2021-04-03 08:38:14  pip install 'git+https://github.com/facebookresearch/detectron2.git'
- 1045  2021-04-03 08:39:07  gcc
- 1046  2021-04-03 08:39:11  gcc --version
- 1047  2021-04-03 08:39:19  pip list | grep cmake
- 1048  2021-04-03 08:39:30  gcc -std=c++14
- 1049  2021-04-03 08:40:32  ls
- 1050  2021-04-03 08:41:49  cd /att/nobackup/jacaraba/
- 1051  2021-04-03 08:41:49  ls
- 1052  2021-04-03 08:41:50  git clone https://github.com/facebookresearch/detectron2
- 1053  2021-04-03 08:42:16  pip install 'git+https://github.com/facebookresearch/detectron2.git'
- 1054  2021-04-03 08:43:05  module avail
- 1055  2021-04-03 08:43:17  module load gcc/8.4.0
- 1056  2021-04-03 08:43:19  pip install 'git+https://github.com/facebookresearch/detectron2.git'
- ```
- 
- Dockerfile for later is located in the repository tree.
+## References
+
+Some useful references to learn more and be able to use other tools are listed below:
+
+- [Awesome repository and notebook examples to use foundation model backends ( I am pretty sure this can give you state of the art for the camera photos)](https://github.com/autodistill/autodistill)
+- [Easy implementation of yolov8](https://github.com/roboflow/supervision)
+- [Good number of notebooks with introductory materials](https://github.com/roboflow/notebooks)
+- [Segmentation of lidar using SAM model](https://github.com/Yarroudh/segment-lidar)
+- [Accelerate labeling using SAM as the backend](https://github.com/opengeos/segment-geospatial)
+- [Additional RGB highres pretrained weights](https://torchgeo.readthedocs.io/en/stable/api/models.html)
